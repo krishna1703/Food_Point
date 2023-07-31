@@ -1,0 +1,58 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "this is namaste react course  🚀",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishna1703/Namaste-React-Episode-3.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react",
+    "krishna",
+    "kumar"
+  ],
+  "author": "krishna kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krishna1703/Namaste-React-Episode-3/issues"
+  },
+  "homepage": "https://github.com/krishna1703/Namaste-React-Episode-3#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-react": "^7.22.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^29.6.1",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.6.1",
+    "parcel": "^2.9.3",
+    "postcss": "^8.4.24",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.6",
+    "@parcel/babel-preset-env": "^2.9.3",
+    "@react-icons/all-files": "^4.1.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "bootstrap": "^5.3.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.0"
+  }
+}
