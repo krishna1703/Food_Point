@@ -9,11 +9,12 @@ const RestaurentMenu = () => {
 
     const { resId } = useParams();
 
+
     const resinfo = useResMenu(resId);
 
     // const ItemCards = resinfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-
+// filter item category
     const categories =
     resinfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -79,11 +80,11 @@ const RestaurentMenu = () => {
                 {
                     categories.map((menuitem, index) => {
 
+                      
                         key = { index }
-
                         return (
                             <>
-
+                          
 
                                 <Menuu menu={menuitem} ></Menuu>
 

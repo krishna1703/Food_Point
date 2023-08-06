@@ -112,9 +112,9 @@ const Body = () => {
             <button
               className=" p-2  bg-green-500  rounded-md text-white xl:p-2 xl:px-4  lg:p-1 lg:px-2 min-[320px]:p-1 "
               onClick={() => {
-                const lists = listofRes.filter((res) => res.info.avgRating < 3);
+                const listss = listofRes.filter((res) => res.info.avgRating < 3);
 
-                SetFilteredlistofRes(lists);
+                SetFilteredlistofRes(listss);
               }}
             >
               3 ⭐ Rating
@@ -157,7 +157,7 @@ const Body = () => {
               {/* this is the function for  no search  found */}
             </div>
           )}
-        </div>
+           </div>
       </div>
 
     </>

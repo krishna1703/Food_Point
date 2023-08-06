@@ -25,4 +25,4 @@ const EmptyCart = () => {
   )
 }
 
-export default EmptyCart;
+export default EmptyCart; 

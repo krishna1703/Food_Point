@@ -1,6 +1,6 @@
 import React from "react";
 import { CDN_LINK } from "../utils/constants";
-import styled from "@emotion/styled";
+
 
 const RestaurentCard = (props) => {
   const { resData } = props;
