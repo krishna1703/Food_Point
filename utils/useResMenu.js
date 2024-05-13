@@ -20,6 +20,8 @@ const useResMenu = (resId) => {
         const Json = await Data.json();
 
         setresinfo(Json.data);
+       
+        
     };
 
 

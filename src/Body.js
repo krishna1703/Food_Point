@@ -3,7 +3,7 @@ import RestaurentCard from "./RestaurentCard";
 import { useState, useEffect } from "react";
 import Simmeruicards from "./Simmeruicards";
 import { Link } from "react-router-dom";
-import { ListofRestaurent } from "../utils/constants"
+import { ListofRestaurent } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Networkconnection from "../utils/Networkconnection";
 
@@ -13,68 +13,70 @@ const Body = () => {
   const [Searchlistofres, SetSearchlistofres] = useState("");
   const [searchResult, setSearchResult] = useState(true);
 
-
-
-
-
-
-
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(ListofRestaurent); 
+    const data = await fetch(ListofRestaurent);
 
     // swiggy api fetch
 
     const Data = await data.json();
 
-    // console.log(Data)
+    console.log(Data);
 
+    //  data  come from api  new swiggy api
+    const arrayOfCards = Data?.data?.cards;
+    const restaurantListing = "restaurant_grid_listing";
 
-
-//  data  come from api  new swiggy api 
-
-    SetlistofRes(Data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-    SetFilteredlistofRes(Data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
+    for (const cardObj of arrayOfCards) {
+      if (
+        cardObj?.card?.card &&
+        cardObj?.card?.card?.id === restaurantListing
+      ) {
+        const resData =
+          cardObj.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        SetlistofRes(resData);
+        SetFilteredlistofRes(resData);
+        console.log(" ggjhgh", resData);
+      }
+    }
   };
-
 
   const OnlineStatus = useOnlineStatus(true);
 
   if (!OnlineStatus) {
-    return <h1><Networkconnection/></h1>;
+    return (
+      <h1>
+        <Networkconnection />
+      </h1>
+    );
   }
 
-
-  if (listofRes.length == 0) {
-
-    return <Simmeruicards />
+  if (listofRes.length === 0) {
+    return <Simmeruicards />;
   }
-
-
-
 
   return (
     <>
       <div className="  shadow-2xl mb-10  m-auto rounded-2xl">
-
         <br></br>
-{/*  tailwind css for body component with responsiveness */}
-        <div className="  flex justify-between  items-center  rounded-2xl mx-5 m-auto   
+        {/*  tailwind css for body component with responsiveness */}
+        <div
+          className="  flex justify-between  items-center  rounded-2xl mx-5 m-auto   
          xl:gap-0 xl:px-10 lg:gap-2 lg:px-10 lg:py-5 md:justify-center md:flex-wrap md:gap-2 sm:py-2 md:p-1   sm:flex-wrap sm:justify-center
            min-[300px]:flex-wrap min-[300px]:justify-center  min-[300px]:py-2 min-[300px]:gap-4
-       shadow-lg text-center gap-5 bg-gray-50">
+       shadow-lg text-center gap-5 bg-gray-50"
+        >
           <div className="font-bold text-xl text-orange-600   lg:font-bold lg:text-base  ">
             <h2>
-              <span className="text-green-500 lg:px-2">Welcome to</span> food point
+              <span className="text-green-500 lg:px-2">Welcome to</span> food
+              point
             </h2>
           </div>
 
-{/* input section */}
+          {/* input section */}
           <div className=" flex  gap-5 mx-10 min-[300px]:justify-center  min-[300px]:flex-wrap ">
             <input
               type="search"
@@ -86,7 +88,7 @@ const Body = () => {
               }}
             ></input>
 
-{/*  search button */}
+            {/*  search button */}
             <button
               data-testid="search-btn"
               className=" bg-green-500  rounded-md p-2 text-white xl:p-2 xl:px-4   lg:p-0 lg:px-3  min-[320px]:px-4 min-[320px]:p-1"
@@ -107,12 +109,14 @@ const Body = () => {
               Search food
             </button>
           </div>
- {/* rating button */}
+          {/* rating button */}
           <div className="flex mx-5 gap-10  ">
             <button
               className=" p-2  bg-green-500  rounded-md text-white xl:p-2 xl:px-4  lg:p-1 lg:px-2 min-[320px]:p-1 "
               onClick={() => {
-                const listss = listofRes.filter((res) => res.info.avgRating < 3);
+                const listss = listofRes.filter(
+                  (res) => res.info.avgRating < 3
+                );
 
                 SetFilteredlistofRes(listss);
               }}
@@ -120,11 +124,12 @@ const Body = () => {
               3 ⭐ Rating
             </button>
 
-
             <button
               className=" p-2  bg-green-500  rounded-md text-white xl:p-0 xl:px-4 lg:p-1 lg:px-2   min-[320px]:p-1   "
               onClick={() => {
-                const lists = listofRes.filter((res) => res.info.avgRating > 4.0);
+                const lists = listofRes.filter(
+                  (res) => res.info.avgRating > 4.0
+                );
 
                 SetFilteredlistofRes(lists);
               }}
@@ -134,10 +139,12 @@ const Body = () => {
           </div>
         </div>
 
+        {/* restaurent data   comes from api and looping in restaurent card using map function  */}
 
-{/* restaurent data   comes from api and looping in restaurent card using map function  */}
-
-        <div className="flex flex-wrap m-2 justify-center " data-testid="reslist">
+        <div
+          className="flex flex-wrap gap-2 justify-center "
+          data-testid="reslist"
+        >
           {searchResult ? (
             FilteredlistofRes.map((res) => {
               return (
@@ -147,21 +154,18 @@ const Body = () => {
               );
             })
           ) : (
-
-            
             <div className="w-full flex justify-center">
               <img
-                className="w-[70%] mt-32 mb-28 "   
+                className="w-[70%] mt-32 mb-28 "
                 src="https://getfood.co.uk/themes-nct/images-nct/no-result-found-white.jpeg"
               />
               {/* this is the function for  no search  found */}
             </div>
           )}
-           </div>
+        </div>
       </div>
-
     </>
-  )
+  );
 };
 
 export default Body;

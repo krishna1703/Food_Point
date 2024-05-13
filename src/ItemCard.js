@@ -1,5 +1,5 @@
 import React from 'react'
-import { CDN_LINK } from '../utils/constants'
+
 import { addItem } from '../utils/cartSlice'
 import { useDispatch } from 'react-redux'
 
@@ -42,7 +42,7 @@ const ItemCard = ({fooditem}) => {
         </div>
 
         <div className='flex flex-col gap-1'>
-          <img className="w-40  border-2 rounded-lg" src={CDN_LINK + imageId} alt="food-img" />
+          <img className="w-40  border-2 rounded-lg" src={"https://media-assets.swiggy.com/swiggy/image/upload/"+ imageId} alt="food-img" />
           <button className='bg-green-400 text-white p-2 px-4 rounded-lg mt-1 '
 
             onClick={() => handleAddItem( fooditem )}

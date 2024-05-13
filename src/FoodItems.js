@@ -14,7 +14,7 @@ const FoodItems = ({ fooditem }) => {
 
 {/* cart component using these type of  cart (fooditem) */}
                     <p className='font-medium text-lg p-2'>{fooditem?.card?.info?.category}</p>
-                    <img className='rounded-2xl w-auto' src={CDN_LINK + fooditem?.card?.info?.imageId}></img>
+                    <img className='rounded-2xl w-auto' src={"https://media-assets.swiggy.com/swiggy/image/upload/" + fooditem?.card?.info?.imageId}></img>
 <br></br>
                     <h3 className='font-semibold  w-60  text-lg'>{fooditem?.card?.info?.name}</h3>
 

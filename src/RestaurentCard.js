@@ -1,29 +1,32 @@
 import React from "react";
-import { CDN_LINK } from "../utils/constants";
+
+
 
 
 const RestaurentCard = (props) => {
   const { resData } = props;
-  const { cloudinaryImageId, cuisines, name, avgRating, sla, costForTwo} =
+  const {  cloudinaryImageId, cuisines, name, avgRating, sla, costForTwo} =
     resData;
-// restaurent card
 
+    
+ 
   return (
-    <div className="w-72 m-3 bg-gray-50 mb-10 rounded-3xl shadow-2xl p-6  hover:bg-gray-100  shadow-slate-300 ">
-      <div>
+    <div className="w-80 m-3 h-auto bg-gray-100 mb-10  mt-10 rounded-3xl shadow-2xl p-6  flex flex-col hover:bg-gray-100  shadow-slate-300 ">
+     
+     
 
-          <div className="w-64" >
+          <div>
             <img
-              className="w-60 rounded-lg "
+              className="w-80    h-64 rounded-lg "
               alt="res-img"
               src={
-                CDN_LINK +
+                "https://media-assets.swiggy.com/swiggy/image/upload/"+ 
                 cloudinaryImageId
-
               }
+              
 
             />
-          </div>
+       
         </div>
 
         <div className="w-72 ">
